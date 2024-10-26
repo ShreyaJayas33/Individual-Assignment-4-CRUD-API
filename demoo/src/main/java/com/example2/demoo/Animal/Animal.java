@@ -1,4 +1,4 @@
-package com.example2.demoo;
+package com.example2.demoo.Animal;
 
 import jakarta.persistence.*; // Use 'jakarta.persistence' for newer versions
 
