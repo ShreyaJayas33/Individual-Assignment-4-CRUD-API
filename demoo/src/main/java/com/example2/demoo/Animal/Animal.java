@@ -1,13 +1,13 @@
 package com.example2.demoo.Animal;
 
-import jakarta.persistence.*; // Use 'jakarta.persistence' for newer versions
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "animals")
+@Table(name = "animaldb")
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int animalId;
 
     @Column(nullable = false)
@@ -23,7 +23,18 @@ public class Animal {
 
     private String description;
 
-    // Getters and Setters
+    public Animal(int animalId, String name, String scientificName, String species, String habitat, String description) {
+        this.animalId = animalId;
+        this.name = name;
+        this.scientificName = scientificName;
+        this.species = species;
+        this.habitat = habitat;
+        this.description = description;
+    }
+
+    public Animal() {} // Default constructor
+
+    // Getters and setters
     public int getAnimalId() {
         return animalId;
     }

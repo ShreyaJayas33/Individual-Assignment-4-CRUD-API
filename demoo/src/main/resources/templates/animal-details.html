@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Details</title>
+</head>
+<body>
+<h1 th:text="${animal.name}">Sample Animal Name</h1>
+<p><strong>Scientific Name:</strong> <span th:text="${animal.scientificName}">Sample Scientific Name</span></p>
+<p><strong>Species:</strong> <span th:text="${animal.species}">Sample Species</span></p>
+<p><strong>Habitat:</strong> <span th:text="${animal.habitat}">Sample Habitat</span></p>
+<p><strong>Description:</strong> <span th:text="${animal.description}">Sample Description</span></p>
+<a href="/animals/all">Back to Animal List</a> | <a th:href="@{/animals/update/{id}(id=${animal.animalId})}">Edit</a>
+</body>
+</html>

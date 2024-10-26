@@ -1,4 +1,4 @@
-package com.example2.demoo;
+package com.example2.demoo.Animal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +12,10 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepository;
 
+    public List<Animal> searchAnimalsByName(String name) {
+        return animalRepository.findByNameContainingIgnoreCase(name);
+    }
+
     public List<Animal> getAllAnimals() {
         return animalRepository.findAll();
     }
@@ -20,29 +24,26 @@ public class AnimalService {
         return animalRepository.findById(id);
     }
 
-    public Animal addAnimal(Animal animal) {
-        return animalRepository.save(animal);
-    }
-
-    public Animal updateAnimal(int id, Animal animalDetails) {
-        Animal animal = animalRepository.findById(id).orElseThrow();
-        animal.setName(animalDetails.getName());
-        animal.setScientificName(animalDetails.getScientificName());
-        animal.setSpecies(animalDetails.getSpecies());
-        animal.setHabitat(animalDetails.getHabitat());
-        animal.setDescription(animalDetails.getDescription());
-        return animalRepository.save(animal);
-    }
-
-    public void deleteAnimal(int id) {
-        animalRepository.deleteById(id);
-    }
-
     public List<Animal> getAnimalsBySpecies(String species) {
         return animalRepository.findBySpecies(species);
     }
 
-    public List<Animal> searchAnimalsByName(String name) {
-        return animalRepository.findByNameContaining(name);
+    public Animal addAnimal(Animal animal) {
+        return animalRepository.save(animal);
+    }
+
+    public Optional<Animal> updateAnimal(int id, Animal animalDetails) {
+        return animalRepository.findById(id).map(animal -> {
+            animal.setName(animalDetails.getName());
+            animal.setScientificName(animalDetails.getScientificName());
+            animal.setSpecies(animalDetails.getSpecies());
+            animal.setHabitat(animalDetails.getHabitat());
+            animal.setDescription(animalDetails.getDescription());
+            return animalRepository.save(animal);
+        });
+    }
+
+    public void deleteAnimal(int id) {
+        animalRepository.deleteById(id);
     }
 }

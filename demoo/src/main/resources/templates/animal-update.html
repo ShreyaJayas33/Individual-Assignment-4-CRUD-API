@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Animal</title>
+</head>
+<body>
+<h1>Update Animal</h1>
+<form action="/animals/update" method="post">
+    <input type="hidden" name="animalId" value="1">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="Lion" required><br>
+
+    <label for="scientificName">Scientific Name:</label>
+    <input type="text" id="scientificName" name="scientificName" value="Panthera leo"><br>
+
+    <label for="species">Species:</label>
+    <input type="text" id="species" name="species" value="Lion" required><br>
+
+    <label for="habitat">Habitat:</label>
+    <input type="text" id="habitat" name="habitat" value="Savannah" required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description">The lion is a species in the family Felidae and a member of the genus Panthera.</textarea><br>
+
+    <button type="submit">Update Animal</button>
+</form>
+<a href="/animals/all">Back to Animal List</a>
+</body>
+</html>

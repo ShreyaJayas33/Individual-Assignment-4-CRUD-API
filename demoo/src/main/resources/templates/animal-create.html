@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Animal</title>
+</head>
+<body>
+<h1>Create New Animal</h1>
+<form action="/animals/new" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="scientificName">Scientific Name:</label>
+    <input type="text" id="scientificName" name="scientificName"><br>
+
+    <label for="species">Species:</label>
+    <input type="text" id="species" name="species" required><br>
+
+    <label for="habitat">Habitat:</label>
+    <input type="text" id="habitat" name="habitat" required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea><br>
+
+    <button type="submit">Create Animal</button>
+</form>
+<a href="/animals/all">Back to Animal List</a>
+</body>
+</html>
